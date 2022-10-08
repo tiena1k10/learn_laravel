@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\FoodController;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/posts/{id}', [PostController::class, 'index'])->where('id', '[0-9]+');
+Route::resource('/foods', FoodController::class);
