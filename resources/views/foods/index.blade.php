@@ -9,6 +9,7 @@
         <p>{{$food->description}}</p>
         <p>{{$food->created_at}}</p>
         <p>{{$food->updated_at}}</p>
+        <h4><a href="/foods/{{$food->id}}/edit">edit</a></h4>
         <h1>===========================</h1>
     @endforeach
 @endsection

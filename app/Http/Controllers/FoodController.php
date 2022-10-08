@@ -48,6 +48,8 @@ class FoodController extends Controller
             'count' => $request->get("count"),
             'description' => $request->get("description"),
         ]);
+
+        return redirect('/foods');
     }
 
     /**
@@ -70,6 +72,9 @@ class FoodController extends Controller
     public function edit(Food $food)
     {
         //
+        return view('foods.edit', [
+            'food' => $food,
+        ]);
     }
 
     /**
@@ -82,6 +87,13 @@ class FoodController extends Controller
     public function update(UpdateFoodRequest $request, Food $food)
     {
         //
+        $foodUpdated = Food::where('id', $food->id)
+            ->update([
+                'name' => $request->get("name"),
+                'count' => $request->get("count"),
+                'description' => $request->get("description"),
+            ]);
+        return redirect('/foods');
     }
 
     /**
